@@ -137,6 +137,7 @@ public class SleepTimerDialog extends DialogFragment {
             if (controller != null) {
                 controller.disableSleepTimer();
             }
+            dialog.cancel();
         });
         Button setButton = content.findViewById(R.id.setSleeptimerButton);
         setButton.setOnClickListener(v -> {
@@ -149,6 +150,7 @@ public class SleepTimerDialog extends DialogFragment {
                 if (controller != null) {
                     controller.setSleepTimer(time, cbShakeToReset.isChecked(), cbVibrate.isChecked());
                 }
+                dialog.cancel();
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 Toast.makeText(getContext(), R.string.time_dialog_invalid_input, Toast.LENGTH_LONG).show();
